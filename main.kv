@@ -1,0 +1,61 @@
+#: import MapView kivy_garden.mapview
+
+#MainWidget: 
+
+
+AnchorLayoutExample: 
+<AnchorLayout>: 
+
+	Image: 
+		source: 'assets/nalaquq_logo.png'
+
+	Image:
+		source: 'assets/nalaquq_background.png'
+		allow_stretch: True
+		keep_ratio: False 
+		
+	BoxLayout: 
+		orientation: "vertical"
+		Image: 
+			source: 'assets/nalaquq_logo.png'  
+		Button: 
+			text: "Login"
+			size_hint: .3, .1
+			# x, center_x, right
+			# y, center_y, top
+			pos_hint: {"center_x": .5}
+			
+			
+		
+#BoxLayoutExample:
+	#orientation: "vertical"  
+#<BoxLayout>:
+	#Button: 
+		#text: "Save Search Grid" 
+		#text_size: self.size 
+		#size_hint: .2, .2
+		#font_size: '25sp'
+		#markup: True
+		#on_release: 
+			#print("I have been clicked!")
+	#MapView:
+		#lat: 60.4297201
+		#lon: -159.156797
+		#zoom: 7 
+		#double_tap_zoom: True
+		#on_lat: 
+			#print('lat', self.lat)
+			#print('lat', self.lon)
+		#MapMarkerPopup: 
+			#lat: 59.755094
+			#lon: -161.845367
+		#Button: 
+			#text: "Reset" 
+			#text_size: self.size
+			#font_size: '25sp'
+			#markup: True
+			#on_release: 
+				#print("RESET ME")
+
+
+
