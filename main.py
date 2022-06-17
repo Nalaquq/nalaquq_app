@@ -21,4 +21,4 @@ class MainApp(App):
     pass 
 
 
-MainApp().run()
+().run()
