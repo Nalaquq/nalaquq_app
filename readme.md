@@ -8,7 +8,9 @@
 [![PyPI status](https://img.shields.io/pypi/status/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)
 
 # Directory structure
+
 '''
+
 .
 ├── app.py                  # runs weather checks and dictionary for drones
 ├── main.py                 # app loader for Kivy
@@ -17,7 +19,9 @@
 ├── db                      # contains .csv files for airports with long, lat
 ├── requirements		
 └── README.md
+
 '''
+
 # Python
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
  
