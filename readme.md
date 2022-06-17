@@ -29,4 +29,3 @@ the airport database is gathered from the following URL:
 adip.faa.gov/public/#/airportSearch/advanced
 ssconvert is then used to convert the file to a .csv
 
-
