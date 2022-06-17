@@ -19,7 +19,6 @@ def pd_convert():
     df2.dropna()
     df2.to_csv("db/airport_data_long_lat")
 
-
 # Known Drone Database
 m300 = {
     "Name": "Matrice 300 RTK",
