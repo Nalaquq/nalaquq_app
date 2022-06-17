@@ -9,18 +9,16 @@
 
 # Directory structure
 
-'''
 
-.
-├── app.py                  # runs weather checks and dictionary for drones
-├── main.py                 # app loader for Kivy
-├── main.kv                 # .kv markup file for app
-├── assets                  # contains fonts, background images, and logos for app
-├── db                      # contains .csv files for airports with long, lat
-├── requirements		
-└── README.md
 
-'''
+    .
+    ├── app.py                  # runs weather checks and dictionary for drones
+    ├── main.py                 # app loader for Kivy
+    ├── main.kv                 # .kv markup file for app
+    ├── assets                  # contains fonts, background images, and logos for app
+    ├── db                      # contains .csv files for airports with long, lat
+    ├── requirements		
+    └── README.md
 
 # Python
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
