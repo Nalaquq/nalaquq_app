@@ -27,8 +27,23 @@
 
 # APIs  
 ## Nalaquq relies on the following APIs to generate weather data for flight planning: 
-1. Airport Databases are updated  
-the airport database is gathered from the following URL: 
+
+1. Airport locations are are gathered from:
+ 
 adip.faa.gov/public/#/airportSearch/advanced
+
+2. Metar and Taf Data are sourced from: 
+
+https://adip.faa.gov/agis/public/#/airportSearch/advanced 
+
+3. 
 ssconvert is then used to convert the file to a .csv
 
+![OpenCV](https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white)
+![Vim](https://img.shields.io/badge/VIM-%2311AB00.svg?style=for-the-badge&logo=vim&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)
+![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
+[Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white) 
