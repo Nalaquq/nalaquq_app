@@ -47,15 +47,13 @@ def airport_selector():
     x = input(
         "Please select where you would like to fly using a four digit Airport code: "
     )
-    y = x.upper()
-    print(f"The airport you have selected is: {y}.")
-    return y
+    global station
+    station = x.upper()
+    print(f"The airport you have selected is: {station}.")
+    return station
 
 
 airport_selector()
-
-kwn = "PAQH"
-bet = "PABE"
 
 # stream and download taf data from closest airport (bethel)
 def taf():
@@ -79,23 +77,20 @@ def taf():
 def metar():
     global page
     global xml
-    global root
-    page = requests.get(
-        "https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=Metars&requestType=retrieve&format=xml&stationString=PAQH&HoursBeforeNow=1"
+    global root     
+    url= f"https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=Metars&requestType=retrieve&format=xml&stationString={station}&HoursBeforeNow=1"
+    headers = requests.utils.default_headers()
+    headers.update(
+        {
+            "User-Agent": "Mozilla/5.0 (Xll; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0"
+        }
     )
+    page = requests.get(url, headers=headers)
     # The weatherdata.gov server times out near the hour. The if statment resolves this
     xml = page.content
     root = et.fromstring(xml)
     error_check = root.find("num_results")
-    if error_check == None:
-        print(
-            f"There was an error processing your report for {kwn}. Trying with a different server."
-        )
-        page = requests.get(
-            "https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=Metars&requestType=retrieve&format=xml&stationString=PAQH&HoursBeforeNow=2"
-        )
-    xml = page.content
-    root = et.fromstring(xml)
+    print(error_check)
 
 
 def raw_text():
@@ -132,20 +127,20 @@ def flight_checks():
 
     def wind_check():
         if m300["Max Wind Resistance"] >= wind():
-            print(f"Checking Wind Conditions at {kwn}")
-            print(f"Wind Check at {kwn} passed")
+            print(f"Checking Wind Conditions at {station}")
+            print(f"Wind Check at {station} passed")
         else:
             print("Checking Wind Conditions")
-            print(f"The winds at {kwn} are too strong")
+            print(f"The winds at {station} are too strong")
             print("You should not fly")
 
     def temp_check():
         if m300["Min Operating Tempreture"] >= tempreture():
-            print(f"Checking temp at {kwn}")
-            print(f"It is too cold at {kwn}. Do not fly")
+            print(f"Checking temp at {station}")
+            print(f"It is too cold at {station}. Do not fly")
         elif m300["Max Operating Tempreture"] <= tempreture():
-            print(f"Checking Temp at {kwn}")
-            print(f"It is too hot at {kwn}. You should not fly.")
+            print(f"Checking Temp at {station}")
+            print(f"It is too hot at {station}. You should not fly.")
 
     wind_check()
     temp_check()
