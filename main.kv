@@ -32,39 +32,53 @@ WindowManager:
 			on_release: app.root.current='MainPage'  
 						
 <MainPage>: 
-	name: "MainPage"
-	Button: 
-		text: "Map" 
-		on_release: app.root.current="Map" 
+	name: "MainPage"	
+	AnchorLayout: 
+	Image:
+		source: 'assets/nalaquq_background.png'
+		allow_stretch: True
+		keep_ratio: False 
+	
+	BoxLayout: 
+		Button: 
+			text: "Map a flight" 
+			size_hint: .3, .1 
+			pos_hint: {"center_x": "center_y"}
+			on_release: app.root.current="Map"
+ 
+		Button: 
+			text: "Check weather conditoins" 
+			size_hint: .3, .1 
+			pos_hint: {"center_x": "center_y"}
+			on_release: app.root.current="Map" 
 <Map>: 
 	name: "Map" 	   
+	AnchorLayout:  
+	MapView:
+		lat: 60.4297201
+		lon: -159.156797
+		zoom: 7 
+		double_tap_zoom: True
+		on_lat: 
+			print('lat', self.lat)
+			print('lat', self.lon)  
+		MapMarkerPopup: 
+			lat: 59.755094
+			lon: -161.845367
 	BoxLayout:
-		orientation: 'vertical' 
-		MapView:
-			lat: 60.4297201
-			lon: -159.156797
-			zoom: 7 
-			double_tap_zoom: True
-			on_lat: 
-				print('lat', self.lat)
-				print('lat', self.lon)  
-			MapMarkerPopup: 
-				lat: 59.755094
-				lon: -161.845367
-		 
-			Button: 
-				text: "Save Search Grid" 
-				text_size: self.size 
-				size_hint: .2, .2
-				font_size: '25sp'
-				markup: True
-				on_release: 
-					print("I have been clicked!")	
-			Button: 
-				text: "Home" 
-				text_size: self.size
-				size_hint: .2, .2
-				font_size: '25sp'
-				markup: True
-				on_release: app.root.current= 'MainPage' 
+		Button: 
+			text: "Save Search Grid" 
+			text_size: self.size 
+			size_hint: .2, .2
+			font_size: '25sp'
+			markup: True
+			on_release: 
+				print("I have been clicked!")	
+		Button: 
+			text: "Home" 
+			text_size: self.size
+			size_hint: .2, .2
+			font_size: '25sp'
+			markup: True
+			on_release: app.root.current= 'MainPage' 
 		
