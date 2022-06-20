@@ -36,15 +36,16 @@
 # APIs  
 ## Nalaquq relies on the following APIs to generate weather data for flight planning: 
 
-1. Airport locations are are gathered from:
+1. Airport locations are are gathered from the FAA's Airport Data and information Portal (ADI). Airport information updated to this portal can be accessed at the following url: 
  
-	adip.faa.gov/public/#/airportSearch/advanced
+		adip.faa.gov/public/#/airportSearch/advanced
 
 2. Metar and Taf Data are sourced from: 
 
-	https://adip.faa.gov/agis/public/#/airportSearch/advanced 
+		https://adip.faa.gov/agis/public/#/airportSearch/advanced 
 
-3. 
+
+
 ssconvert is then used to convert the file to a .csv
 
 
