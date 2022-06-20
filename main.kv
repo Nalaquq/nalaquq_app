@@ -4,6 +4,7 @@
 WindowManager: 
 	SplashScreen: 
 	MainPage: 
+	Map: 
 
 <SplashScreen>:
 	name: "SplashScreen" 
@@ -29,10 +30,14 @@ WindowManager:
 			# y, center_y, top
 			pos_hint: {"center_x": .5}
 			on_release: app.root.current='MainPage'  
-			
-			
+						
 <MainPage>: 
-	name: "MainPage" 	   
+	name: "MainPage"
+	Button: 
+		text: "Map" 
+		on_release: app.root.current="Map" 
+<Map>: 
+	name: "Map" 	   
 	BoxLayout:
 		orientation: 'vertical' 
 		MapView:
@@ -61,5 +66,5 @@ WindowManager:
 				size_hint: .2, .2
 				font_size: '25sp'
 				markup: True
-				on_release: app.root.current= 'SplashScreen' 
+				on_release: app.root.current= 'MainPage' 
 		
