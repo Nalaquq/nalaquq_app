@@ -19,6 +19,7 @@ def pd_convert():
     df2.dropna()
     df2.to_csv("db/airport_data_long_lat")
 
+
 # Known Drone Database
 m300 = {
     "Name": "Matrice 300 RTK",
@@ -77,8 +78,8 @@ def taf():
 def metar():
     global page
     global xml
-    global root     
-    url= f"https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=Metars&requestType=retrieve&format=xml&stationString={station}&HoursBeforeNow=1"
+    global root
+    url = f"https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=Metars&requestType=retrieve&format=xml&stationString={station}&HoursBeforeNow=1"
     headers = requests.utils.default_headers()
     headers.update(
         {

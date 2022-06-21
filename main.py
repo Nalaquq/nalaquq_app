@@ -4,7 +4,6 @@ from kivy.uix.widget import Widget
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.video import Video
-from kivy.uix.image import Image
 from kivy.uix.screenmanager import ScreenManager, Screen 
 from kivy.lang import Builder
 from kivy_garden.mapview import MapView
