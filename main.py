@@ -10,6 +10,8 @@ from kivy_garden.mapview import MapView
 
 #Define different screens
 
+class GridLayout(GridLayout): 
+    pass 
 class SplashScreen(Screen): 
     pass 
 
@@ -36,6 +38,5 @@ class MainWidget(Widget):
 
 class MainApp(App):
     pass
-
 
 MainApp().run()

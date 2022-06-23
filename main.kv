@@ -37,20 +37,40 @@ WindowManager:
 	Image:
 		source: 'assets/nalaquq_background.png'
 		allow_stretch: True
-		keep_ratio: False 
-	
-	BoxLayout: 
+		keep_ratio: False  
+	 
+	GridLayout: 
+		cols: 2 
+		rows: 3
 		Button: 
-			text: "Map a flight" 
+			text: "Register an Aircraft" 
+			size_hint: .3, .1
+			on_release: app.root.current="Map"
+
+		Button: 
+			text: "Check Weather" 
 			size_hint: .3, .1 
-			pos_hint: {"center_x": "center_y"}
 			on_release: app.root.current="Map"
  
 		Button: 
-			text: "Check weather conditoins" 
+			text: "Plan a Mission" 
 			size_hint: .3, .1 
-			pos_hint: {"center_x": "center_y"}
-			on_release: app.root.current="Map" 
+			on_release: app.root.current="Map"
+  
+		Button: 
+			text: "View Maps" 
+			size_hint: .3, .1
+			on_release: app.root.current="Map"
+
+		Button: 
+			text: "View Results" 
+			size_hint: .3, .1 
+			on_release: app.root.current="Map"
+ 
+		Button: 
+			text: "File a Mission Report" 
+			size_hint: .3, .1 
+			on_release: app.root.current="Map"
 <Map>: 
 	name: "Map" 	   
 	AnchorLayout:  
