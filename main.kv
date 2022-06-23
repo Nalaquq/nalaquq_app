@@ -38,38 +38,46 @@ WindowManager:
 		source: 'assets/nalaquq_background.png'
 		allow_stretch: True
 		keep_ratio: False  
-	 
+	  
 	GridLayout: 
+		#specify number of rows and cols 
 		cols: 2 
 		rows: 3
+		row_default_height: '100dp'
+		row_force_default: True 
+		spacing: 10, 10 
+		padding: 10, 10 
+		size_hint_y: None 
+		height: self.minimum_height 
+
 		Button: 
 			text: "Register an Aircraft" 
-			size_hint: .3, .1
+			size_hint: .1, .1
 			on_release: app.root.current="Map"
 
 		Button: 
 			text: "Check Weather" 
-			size_hint: .3, .1 
+			size_hint: .1, .1 
 			on_release: app.root.current="Map"
  
 		Button: 
 			text: "Plan a Mission" 
-			size_hint: .3, .1 
+			size_hint: .1, .1 
 			on_release: app.root.current="Map"
   
 		Button: 
 			text: "View Maps" 
-			size_hint: .3, .1
+			size_hint: .1, .1
 			on_release: app.root.current="Map"
 
 		Button: 
 			text: "View Results" 
-			size_hint: .3, .1 
+			size_hint: .1, .1 
 			on_release: app.root.current="Map"
  
 		Button: 
 			text: "File a Mission Report" 
-			size_hint: .3, .1 
+			size_hint: .1, .1 
 			on_release: app.root.current="Map"
 <Map>: 
 	name: "Map" 	   
