@@ -123,7 +123,8 @@ WindowManager:
 		double_tap_zoom: True
 		on_lat: 
 			print('lat', self.lat)
-			print('lat', self.lon)  
+			print('lat', self.lon) 
+	 
 		
 <SAR>: 
 	name: "SAR" 	   
@@ -140,6 +141,8 @@ WindowManager:
 		BoxLayout:
 			FileChooserIconView: 	
 				id: filechooser
+				###change to a function which calls the local directory in python then pass this function" 
+				path: "/home/nalkuq/nalaquq_app"
 		BoxLayout:
 			Button: 
 				text: "Home" 

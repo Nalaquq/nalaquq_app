@@ -59,7 +59,7 @@ airport_selector()
 # stream and download taf data from closest airport (bethel)
 def taf():
     headers = requests.utils.default_headers()
-    url = "https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=tafs&requestType=retrieve&format=xml&stationString=PABE&hoursBeforeNow=4"
+    url = f"https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=tafs&requestType=retrieve&format=xml&stationString={station}&hoursBeforeNow=4"
     headers.update(
         {
             "User-Agent": "Mozilla/5.0 (Xll; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0"
@@ -68,7 +68,7 @@ def taf():
     page = requests.get(url, headers=headers)
     xml = page.content
     root = et.fromstring(xml)
-    print(f"The airport you have selected is: {kwn}.")
+    print(f"The airport you have selected is: {station}.")
     print("The following Tafs were generated in the last four hours:")
     for raw in root.iter("raw_text"):
         print(raw.text)
@@ -125,6 +125,7 @@ def metar_decoded():
 def flight_checks():
     metar()
     metar_decoded()
+    taf()
 
     def wind_check():
         if m300["Max Wind Resistance"] >= wind():
