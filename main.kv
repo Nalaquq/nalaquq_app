@@ -129,11 +129,14 @@ WindowManager:
 	name: "SAR" 	   
 	BoxLayout: 
 		orientation: "vertical" 
-		BoxLayout:	
+		size: root.width, root.height
+		BoxLayout:
+			size: root.width, root.height
+			size_hint: 1,.2	 
 			Button: 
 				text: "reset"
 			Button: 
-				text: "load"  
+				text: "load" 
 		BoxLayout:
 			FileChooserIconView: 	
 				id: filechooser
