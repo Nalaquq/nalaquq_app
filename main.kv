@@ -4,7 +4,9 @@
 WindowManager: 
 	SplashScreen: 
 	MainPage: 
-	Map: 
+	Map:
+	Weather:  
+	SAR: 
 
 <SplashScreen>:
 	name: "SplashScreen" 
@@ -38,7 +40,7 @@ WindowManager:
 		source: 'assets/nalaquq_background.png'
 		allow_stretch: True
 		keep_ratio: False  
-	  
+	
 	GridLayout: 
 		#specify number of rows and cols 
 		cols: 2 
@@ -46,8 +48,9 @@ WindowManager:
 		row_default_height: '100dp'
 		row_force_default: True 
 		spacing: 10, 10 
-		padding: 10, 10 
-		size_hint_y: None 
+		padding: 20, 20 
+		#centers grid layout to middle of screen. 
+		size_hint_y: .75 
 		height: self.minimum_height 
 
 		Button: 
@@ -58,7 +61,7 @@ WindowManager:
 		Button: 
 			text: "Check Weather" 
 			size_hint: .1, .1 
-			on_release: app.root.current="Map"
+			on_release: app.root.current="Weather"
  
 		Button: 
 			text: "Plan a Mission" 
@@ -71,9 +74,9 @@ WindowManager:
 			on_release: app.root.current="Map"
 
 		Button: 
-			text: "View Results" 
+			text: "SAR Detection" 
 			size_hint: .1, .1 
-			on_release: app.root.current="Map"
+			on_release: app.root.current="SAR"
  
 		Button: 
 			text: "File a Mission Report" 
@@ -109,4 +112,36 @@ WindowManager:
 			font_size: '25sp'
 			markup: True
 			on_release: app.root.current= 'MainPage' 
+
+<Weather>: 
+	name: "Weather" 
+	BoxLayout: 
+	MapView:
+		lat: 60.4297201
+		lon: -159.156797
+		zoom: 7 
+		double_tap_zoom: True
+		on_lat: 
+			print('lat', self.lat)
+			print('lat', self.lon)  
 		
+<SAR>: 
+	name: "SAR" 	   
+	BoxLayout: 
+		orientation: "vertical" 
+		BoxLayout:	
+			Button: 
+				text: "reset"
+			Button: 
+				text: "load"  
+		BoxLayout:
+			FileChooserIconView: 	
+				id: filechooser
+		BoxLayout:
+			Button: 
+				text: "Home" 
+				text_size: self.size
+				size_hint: .2, .2
+				font_size: '25sp'
+				markup: True
+				on_release: app.root.current= 'MainPage'

@@ -7,17 +7,26 @@ from kivy.uix.video import Video
 from kivy.uix.screenmanager import ScreenManager, Screen 
 from kivy.lang import Builder
 from kivy_garden.mapview import MapView
+from kivy_garden.mapview import MapMarkerPopup
 
 #Define different screens
 
 class GridLayout(GridLayout): 
     pass 
+
 class SplashScreen(Screen): 
     pass 
 
 class MainPage(Screen): 
     pass
 
+class Weather(Screen):
+    def on_start(self): 
+        marker=MapMarkerPopup(lat=60.4297201, lon=-159.156797)
+        marker.add_widget(Button)
+        self.root.add_widget(marker)
+    pass 
+    
 class Map(Screen): 
     pass
 
@@ -28,7 +37,7 @@ class WindowManager(ScreenManager):
 class AnchorLayoutExample(AnchorLayout):
     pass
 
-class BoxLayoutExample(BoxLayout):
+class SAR(Screen):
     pass
 
 
