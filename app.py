@@ -19,6 +19,11 @@ def pd_convert():
     df2.dropna()
     df2.to_csv("db/airport_data_long_lat")
 
+# Mapping Gear List 
+
+mapping_gear= { "orange landing pad": "orange landing pad", "P1 sensor": ["2 Empty SD Cards", "Cloth Cleaning and Lens Kit", "P1 Sensor"], "RTK": ["D-RTK2 Base Station Tripod", "D-RTK2 DGNSS Station with Survey Pole", "Surveyor's tape and Chaining Pin for Temporary Datum", "Orange Spray Paint for GCPs"], "M300": ["Flight controller and lanyard", "Tool Repair Kit", "Water Proof Notepad", "Waterproof Flight Log Book", "Duct Tape", "Zip Ties", "Parrot Sequia Sensor and Mount", "Charged Power Bank for Parrot Sequia", "Power Bank charging cables", "Black Foam Hat", "Binnoculars", "4TB60 Flight Batteries", "5WB batteries", "M300 Drone", "Small Backpacking Towel", "VHF Radio for ATC", "2-way Walkie Talkies", "ATV Ratchet Straps", "Spare Props"], "Battery Charging Case": ["Battery Charging Case", "Power Cable"], "Mobile Processing": ["Laptop with SD Card Reader", "Laptop Charging Cable", "External Harddrive with Cables", "broswer: http://192.168.47.1/"]}
+
+
 
 # Known Drone Database
 m300 = {

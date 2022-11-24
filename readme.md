@@ -42,7 +42,5 @@
 
 		https://adip.faa.gov/agis/public/#/airportSearch/advanced 
 
-
-ssconvert is then used to convert the file to a .csv
-
+XML data from these APIs is parsed. 
 
