@@ -63,20 +63,24 @@ airport_selector()
 
 # stream and download taf data from closest airport (bethel)
 def taf():
-    headers = requests.utils.default_headers()
-    url = f"https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=tafs&requestType=retrieve&format=xml&stationString={station}&hoursBeforeNow=4"
-    headers.update(
+    try: 
+        headers = requests.utils.default_headers()
+        url = f"https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=tafs&requestType=retrieve&format=xml&stationString={station}&hoursBeforeNow=4"
+        headers.update(
         {
             "User-Agent": "Mozilla/5.0 (Xll; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0"
         }
     )
-    page = requests.get(url, headers=headers)
-    xml = page.content
-    root = et.fromstring(xml)
-    print(f"The airport you have selected is: {station}.")
-    print("The following Tafs were generated in the last four hours:")
-    for raw in root.iter("raw_text"):
-        print(raw.text)
+        page = requests.get(url, headers=headers)
+        xml = page.content
+        root = et.fromstring(xml)
+        print(f"The airport you have selected is: {station}.")
+        print("The following Tafs were generated in the last four hours:")
+        for raw in root.iter("raw_text"):
+            print(raw.text)
+    except:  
+        print("No TAF could be generated at this time") 
+        pass
 
 
 # Stream Metars Data as xml
@@ -133,21 +137,31 @@ def flight_checks():
     taf()
 
     def wind_check():
-        if m300["Max Wind Resistance"] >= wind():
-            print(f"Checking Wind Conditions at {station}")
-            print(f"Wind Check at {station} passed")
-        else:
-            print("Checking Wind Conditions")
-            print(f"The winds at {station} are too strong")
-            print("You should not fly")
+        try: 
+            if m300["Max Wind Resistance"] >= wind():
+                print(f"Checking Wind Conditions at {station}")
+                print(wind())
+                print(f"Wind Check at {station} passed")
+            else:
+                print("Checking Wind Conditions")
+                print(f"The winds at {station} are too strong")
+                print("You should not fly")
+        except: 
+            print("Could not run wind check. No airport data available")
+            pass
 
     def temp_check():
-        if m300["Min Operating Tempreture"] >= tempreture():
-            print(f"Checking temp at {station}")
-            print(f"It is too cold at {station}. Do not fly")
-        elif m300["Max Operating Tempreture"] <= tempreture():
-            print(f"Checking Temp at {station}")
-            print(f"It is too hot at {station}. You should not fly.")
+        try: 
+            if m300["Min Operating Tempreture"] >= tempreture():
+                print(f"Checking temp at {station}")
+                print(tempreture())
+                print(f"It is too cold at {station}. Do not fly")
+            elif m300["Max Operating Tempreture"] <= tempreture():
+                print(f"Checking Temp at {station}")
+                print(f"It is too hot at {station}. You should not fly.")
+        except: 
+            print("could not run temp check for your aircraft. No airport data is available")
+            pass 
 
     wind_check()
     temp_check()
